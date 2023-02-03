@@ -4,7 +4,7 @@
     "description": "Control the COI Computerized Oblique Illumination Device",
     "version": "0.1",
     "action": {
-      "default_popup": "hello.html",
-      "default_icon": "icon.png"
+      "default_popup": "popup/popup.html",
+      "default_icon": "images/icon.png"
     }
 }
