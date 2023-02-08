@@ -3,8 +3,21 @@
     "name": "COI",
     "description": "Control the COI Computerized Oblique Illumination Device",
     "version": "0.1",
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "options_page": "options.html",
+
     "action": {
       "default_popup": "popup/popup.html",
       "default_icon": "images/icon.png"
-    }
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting",
+        "tabs"
+    ]
 }
