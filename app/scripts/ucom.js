@@ -1,4 +1,4 @@
-// Based off of https://github.com/renaun/ArduinoExamples/blob/master/MyChromeArduinoBlink/blink.js
+
 
 var connectionId = -1;
 var readBuffer = "";
