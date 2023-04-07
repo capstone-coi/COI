@@ -9,6 +9,7 @@
 <meta content="default-src 'sha256-GuBCN8vEUB3K3qnF7XPEU3nGn57G5TwtbBPzk84hDrU='">
 <meta content="default-src 'sha256-O0/NdQbGkLfN47aW2E/lT6y0Fr0CrIIrlyW2DN1sIgk='">
 <meta content="default-src 'sha256-jaGDvpJFzjJ/lo7ztnctrd1LcbWlxgkVoKlMUlFHcK8='">
+<script src="scripts/maskgen.js"></script>
 <style>
 .city {
   font-family:verdana;
@@ -67,24 +68,38 @@
 
 <h2 style="font-family:verdana;color:#18dfe2;">Sample Oblique Illumination Image</h2>
 
-<canvas id="myCanvas" width="300" height="150">
-Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="myCanvas" width="128" height="128">
+Your browser does not support the HTML5 canvas tag.<br>
+That means it's pretty lame and you should probably throw away your computer and stop running MS DOS.
+</canvas>
 
 <script>
 var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
+/*var ctx = c.getContext("2d");
 var grd = ctx.createRadialGradient(75, 50, 5, 90, 60, 100);
 grd.addColorStop(0, "black");
 grd.addColorStop(1, "white");
 ctx.fillStyle = grd;
 ctx.fillRect(10, 10, 150, 100);
+*/
+var context = c.getContext('2d');
+function onUpdateSlider() {
+  context.clearRect(0, 0, c.width, c.height);
+  drawMask(
+    context,
+    document.getElementById('myRange1').value,
+    document.getElementById('myRange2').value,
+    document.getElementById('myRange4').value,
+    document.getElementById('myRange4').value + document.getElementById('myRange3').value,
+    64, 64);
+}
 </script>
 
 <h2 class="city">Aperature 1 (Outer Radius)</h2>
 <p style="font-family:verdana;color:#ffbe5e;">This is the radius of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="144" value="0" class="slider" id="myRange1">
+  <input type="range" min="0" max="144" value="0" class="slider" id="myRange1" onchange="onUpdateSlider">
   <p>Value: <span id="demo1"></span></p>
 </div>
 
@@ -95,6 +110,7 @@ output1.innerHTML = slider1.value;
 
 slider1.oninput = function() {
   output1.innerHTML = this.value;
+  onUpdateSlider();
 }
 </script>
 
@@ -102,7 +118,7 @@ slider1.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the radius of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="144" value="0" class="slider" id="myRange2">
+  <input type="range" min="0" max="144" value="0" class="slider" id="myRange2" onchange="onUpdateSlider">
   <p>Value: <span id="demo2"></span></p>
 </div>
 
@@ -113,6 +129,7 @@ output2.innerHTML = slider2.value;
 
 slider2.oninput = function() {
   output2.innerHTML = this.value;
+  onUpdateSlider();
 }
 </script>
 
@@ -120,7 +137,7 @@ slider2.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the angle swept by the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="360" value="0" class="slider" id="myRange3">
+  <input type="range" min="0" max="360" value="0" class="slider" id="myRange3" onchange="onUpdateSlider">
   <p>Value: <span id="demo3"></span></p>
 </div>
 
@@ -131,6 +148,7 @@ output3.innerHTML = slider3.value;
 
 slider3.oninput = function() {
   output3.innerHTML = this.value;
+  onUpdateSlider();
 }
 </script>
 
@@ -138,7 +156,7 @@ slider3.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the rotation of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="360" value="0" class="slider" id="myRange4">
+  <input type="range" min="0" max="360" value="0" class="slider" id="myRange4" onchange="onUpdateSlider">
   <p>Value: <span id="demo4"></span></p>
 </div>
 
@@ -149,6 +167,7 @@ output4.innerHTML = slider4.value;
 
 slider4.oninput = function() {
   output4.innerHTML = this.value;
+  onUpdateSlider();
 }
 </script> 
 
