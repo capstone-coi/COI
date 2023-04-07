@@ -84,17 +84,18 @@ function onUpdateSlider() {
     context,
     document.getElementById('myRange1').value,
     document.getElementById('myRange2').value,
-    document.getElementById('myRange4').value,
-    document.getElementById('myRange4').value + document.getElementById('myRange3').value,
+    document.getElementById('myRange4').value / 100,
+    document.getElementById('myRange4').value / 100 + document.getElementById('myRange3').value / 100,
     64, 64);
 }
+window.onload = onUpdateSlider;
 </script>
 
 <h2 class="city">Aperature 1 (Outer Radius)</h2>
 <p style="font-family:verdana;color:#ffbe5e;">This is the radius of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="144" value="0" class="slider" id="myRange1" onchange="onUpdateSlider">
+  <input type="range" min="0" max="144" value="53" class="slider" id="myRange1" onchange="onUpdateSlider">
   <p>Value: <span id="demo1"></span></p>
 </div>
 
@@ -113,7 +114,7 @@ slider1.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the radius of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="144" value="0" class="slider" id="myRange2" onchange="onUpdateSlider">
+  <input type="range" min="0" max="144" value="16" class="slider" id="myRange2" onchange="onUpdateSlider">
   <p>Value: <span id="demo2"></span></p>
 </div>
 
@@ -132,8 +133,8 @@ slider2.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the angle swept by the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="-3.14" max="3.14" value="0" class="slider" id="myRange3" onchange="onUpdateSlider">
-  <p>Value: <span id="demo3"></span></p>
+  <input type="range" min="0" max="628" value="170" class="slider" id="myRange3" onchange="onUpdateSlider">
+  <p>Value: <span id="demo3"></span> radians</p>
 </div>
 
 <script>
@@ -142,7 +143,7 @@ var output3 = document.getElementById("demo3");
 output3.innerHTML = slider3.value;
 
 slider3.oninput = function() {
-  output3.innerHTML = this.value;
+  output3.innerHTML = this.value / 100;
   onUpdateSlider();
 }
 </script>
@@ -151,8 +152,8 @@ slider3.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the rotation of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="-3.14" max="3.14" value="0" class="slider" id="myRange4" onchange="onUpdateSlider">
-  <p>Value: <span id="demo4"></span></p>
+  <input type="range" min="-314" max="314" value="110" class="slider" id="myRange4" onchange="onUpdateSlider">
+  <p>Value: <span id="demo4"></span> radians</p>
 </div>
 
 <script>
@@ -161,7 +162,7 @@ var output4 = document.getElementById("demo4");
 output4.innerHTML = slider4.value;
 
 slider4.oninput = function() {
-  output4.innerHTML = this.value;
+  output4.innerHTML = this.value / 100;
   onUpdateSlider();
 }
 </script> 
