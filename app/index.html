@@ -4,11 +4,6 @@
   <title>COI | Condensed Oblique Illumination</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy">
-<meta content="default-src 'sha256-8c+tDTugAtjVMaX/ObNm0yD9hsID0RQZkrQCoy1dS6o='">
-<meta content="default-src 'sha256-GuBCN8vEUB3K3qnF7XPEU3nGn57G5TwtbBPzk84hDrU='">
-<meta content="default-src 'sha256-O0/NdQbGkLfN47aW2E/lT6y0Fr0CrIIrlyW2DN1sIgk='">
-<meta content="default-src 'sha256-jaGDvpJFzjJ/lo7ztnctrd1LcbWlxgkVoKlMUlFHcK8='">
 <script src="scripts/maskgen.js"></script>
 <style>
 .city {
@@ -137,7 +132,7 @@ slider2.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the angle swept by the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="360" value="0" class="slider" id="myRange3" onchange="onUpdateSlider">
+  <input type="range" min="-3.14" max="3.14" value="0" class="slider" id="myRange3" onchange="onUpdateSlider">
   <p>Value: <span id="demo3"></span></p>
 </div>
 
@@ -156,7 +151,7 @@ slider3.oninput = function() {
 <p style="font-family:verdana;color:#ffbe5e;">This is the rotation of the oblique image.</p>
 
 <div class="slidecontainer">
-  <input type="range" min="0" max="360" value="0" class="slider" id="myRange4" onchange="onUpdateSlider">
+  <input type="range" min="-3.14" max="3.14" value="0" class="slider" id="myRange4" onchange="onUpdateSlider">
   <p>Value: <span id="demo4"></span></p>
 </div>
 
