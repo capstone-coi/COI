@@ -35,3 +35,21 @@ function drawMask(ctx, outer_radius, inner_radius, start_angle, stop_angle, cent
 }
 
 
+/*
+    Returns a Uint8Array where each element represents the on/off states of 8 pixels
+*/
+function pullBitMask(ctx) {
+    var imageData = ctx.getImageData(0, 0, 128, 128).data;
+    var bitMask = new Uint8Array(128 * 128 / 8);
+    for(var i = 0; i < imageData.length; i += 4 * 8) {
+        var myByte = 0b00000000;
+        for (var j = 0; j < 8; j++) {
+            if(imageData[i + j * 4] > 0) {
+                myByte |= 1 << j;
+            }
+        }
+        bitmask[i / 32] = myByte;
+    }
+}
+
+
