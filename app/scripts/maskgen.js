@@ -44,12 +44,13 @@ function pullBitMask(ctx) {
     for(var i = 0; i < imageData.length; i += 4 * 8) {
         var myByte = 0b00000000;
         for (var j = 0; j < 8; j++) {
-            if(imageData[i + j * 4] > 0) {
+            if(imageData[i + j * 4 + 3] > 0) {
                 myByte |= 1 << j;
             }
         }
-        bitmask[i / 32] = myByte;
+        bitMask[i / 32] = myByte;
     }
+    return bitMask;
 }
 
 
