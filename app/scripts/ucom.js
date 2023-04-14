@@ -55,16 +55,23 @@ function openSelectedPort() {
   navigator.serial.open(selectedPort, onOpen);
 }
 
-onload = function() {
+var writableThingy = null;
+
+doThaThing = function() {
+    alert("Sup, bro?");
     document.getElementById("connect-button").addEventListener('click', async () => {
         console.log("Connect button clicked");
-        await navigator.serial.requestPort();
-        console.log("Port requested");
-        await navigator.serial.getPorts().then(async (ports) => {
-            console.log(ports);
-            buildPortPicker(ports);
-            openSelectedPort();
+        await navigator.serial.requestPort().then(async (port) => {
+            console.log(port);
+            await port.open({ baudRate: 115200 });
+            writableThingy = port.writable.getWriter();
         });
         console.log("Ports gotten");
     });    
 }
+
+function takeADump(stuffToDump) {
+  writableThingy.write(stuffToDump);
+}
+
+setTimeout(doThaThing, 100);

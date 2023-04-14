@@ -5,6 +5,7 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="scripts/maskgen.js"></script>
+<script src="scripts/ucom.js"></script>
 <style>
 .city {
   font-family:verdana;
@@ -50,16 +51,17 @@
   cursor: pointer;
 }
 </style>
-<body style="background-color:#005f60;">
-
 </head>
 
+<body style="background-color:#005f60;">
 <h1 style="font-family:verdana;color:#f59734;"> Welcome to Oblique Illumination!</h1>
 <h2 style="font-family:verdana;color:#ffbe5e;">Follow the instructions below to get started.</h2>
 
 <h2 class="city">Image on Slide</h2>
 <p style="font-family:verdana;color:#ffbe5e;">Please refer to your Instructions booklet to connect your oblique illuminator and see your slide on the screen below.</p>
 <img src="https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/S/aplus-media/sc/19a2f971-31f1-425c-a893-a720e0895143.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Microscope Slide" width="460" height="345">
+
+<br>
 
 <h2 style="font-family:verdana;color:#18dfe2;">Sample Oblique Illumination Image</h2>
 
@@ -90,6 +92,12 @@ function onUpdateSlider() {
 }
 window.onload = onUpdateSlider;
 </script>
+
+<hr>
+<button id="connect-button" style="border-width:15px; border-radius:8px; border-color:pink; padding-top: 50px; padding-bottom: 50px; background-color:orange;">Connect the thing, bro!</button>
+
+<button id="dump-button" onclick="takeADump(pullBitMask(context))" style="border-width:15px; border-radius:8px; border-color:darkgreen; padding-top: 50px; padding-bottom: 50px; background-color:rgb(0, 255, 234);">Take a dump, bro!</button>
+<hr>
 
 <h2 class="city">Aperature 1 (Outer Radius)</h2>
 <p style="font-family:verdana;color:#ffbe5e;">This is the radius of the oblique image.</p>
